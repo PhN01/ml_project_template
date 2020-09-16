@@ -1,0 +1,20 @@
+{
+    "python.pythonPath": "/Users/nphilipp/opt/anaconda3/bin/python",
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}",
+    },
+    "python.linting.pylintEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.blackArgs": [
+        "--line-length=88"
+    ],
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+}
