@@ -22,5 +22,5 @@ test: lint-test
 	coverage run
 	coverage report
 
-push-test: lint-test
+git-test: lint-test
 	coverage run

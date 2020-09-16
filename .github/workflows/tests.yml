@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: |
           make init
-      - name: Lint
+      - name: Linting and Testing
         run: |
-          make lint-test
-      - name: Test with pytest
-        run: |
-          pipenv run coverage run
+          make git-test
