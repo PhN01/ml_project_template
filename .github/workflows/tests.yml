@@ -30,5 +30,4 @@ jobs:
           make lint-test
       - name: Unit Tests
         run: |
-          make activate_env
-          coverage run
+          make git-test
