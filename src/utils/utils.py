@@ -1,13 +1,37 @@
-import os
-import colorlog
 import logging
-import datetime
+import os
 import sys
+from datetime import datetime
+from typing import Tuple, Union
+
+import colorlog
 
 
-def make_dirs_checked(directory):
+def make_dirs_checked(directory: str) -> None:
+    """If not exists yet: create directory (and all non-existent dirs in its path)"""
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
+
+
+def split_path(filepath: str) -> Tuple[str, str, str]:
+    """Split a filepath into its directory path, basename and file extension"""
+    directory, filename = os.path.split(filepath)
+    basename, extension = os.path.splitext(filename)
+    return (directory, basename, extension)
+
+
+def make_path(path_tup: Union[str, Tuple]) -> str:
+    if isinstance(path_tup, tuple):
+        if len(path_tup) == 2:
+            dir, file = path_tup
+            path = os.path.join(dir, file)
+        elif len(path_tup) == 3:
+            dir, file, ext = path_tup
+            path = os.path.join(dir, file + ext)
+    else:
+        path = path_tup
+
+    return path
 
 
 def get_logger(log_path: Union[str, None] = None, force: bool = True) -> logging.Logger:
