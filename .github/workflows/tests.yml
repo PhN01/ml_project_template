@@ -25,6 +25,10 @@ jobs:
       - name: Install dependencies
         run: |
           make init
-      - name: Linting and Testing
+      - name: Lint
         run: |
-          make git-test
+          make lint-test
+      - name: Unit Tests
+        run: |
+          make activate-env
+          coverage run
