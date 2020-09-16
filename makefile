@@ -22,5 +22,5 @@ test: lint-test
 	coverage run
 	coverage report
 
-git-test: lint-test
+git-test: activate_env
 	coverage run
